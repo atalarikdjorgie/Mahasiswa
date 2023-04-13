@@ -58,6 +58,55 @@ public class AdapterActivity extends RecyclerView.Adapter<AdapterActivity.ViewHo
             tvNama= itemView.findViewById(R.id.tv_nama);
             tvProdi = itemView.findViewById(R.id.tv_prodi);
 
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    AlertDialog.Builder pesan = new AlertDialog.Builder(ctx);
+                    pesan.setTitle("Perhatian");
+                    pesan.setMessage("Perintah Apa yang Akan Dilakukan?");
+                    pesan.setCancelable(true);
+                    pesan.setPositiveButton("Ubah", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String id, npm, nama, prodi;
+
+                            id = tvId.getText().toString();
+                            npm = tvNPM.getText().toString();
+                            nama = tvNama.getText().toString();
+                            prodi = tvProdi.getText().toString();
+
+                            Intent kirim = new Intent(ctx, UbahActivity.class);
+                            kirim.putExtra("xId", id);
+                            kirim.putExtra("xNPM", npm);
+                            kirim.putExtra("xNama", nama);
+                            kirim.putExtra("xProdi", prodi);
+                            ctx.startActivity(kirim);
+
+                        }
+                    });
+                    pesan.setNegativeButton("Hapus", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            DatabaseHelper myDB = new DatabaseHelper(ctx);
+                            long eks = myDB.hapusData(tvId.getText().toString());
+                            if(eks == -1){
+                                Toast.makeText(ctx, "Gagal Hapus Data", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(ctx, "Sukses Hapus Data", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                                ((MainActivity)ctx).onResume();
+                            }
+
+                        }
+                    });
+                    pesan.show();
+
+                    return false;
+                }
+            });
+
         }
     }
 }

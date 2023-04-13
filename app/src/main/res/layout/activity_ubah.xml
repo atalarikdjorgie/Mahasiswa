@@ -4,62 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:layout_margin="6dp"
     android:orientation="vertical"
     tools:context=".UbahActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ubah Data Mahasiswa"
-        android:textSize="21sp"
+        android:text="Ubah Mahasiswa"
+        android:id="@+id/tv_ubahMahasiswa"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="32dp"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:textAlignment="center"/>
 
-        <EditText
-            android:id="@+id/et_npm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="NPM Mahasiswa"
-            android:background="@color/white"
-            android:inputType="text"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/et_nama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nama Mahasiswa"
-            android:background="@color/white"
-            android:inputType="number"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/et_prodi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Prodi Mahasiswa"
-            android:background="@color/white"
-            android:inputType="text"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-    <Button
-        android:id="@+id/btn_ubah"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Ubah"/>
+        android:id="@+id/et_npm"
+        android:hint="NPM Mahasiswa"
+        android:inputType="text"
+        android:textSize="24sp"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_nama"
+        android:hint="Nama Mahasiswa"
+        android:inputType="text"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_prodi"
+        android:hint="Nama Prodi"
+        android:inputType="text"
+        android:textSize="24sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_ubah"
+        android:layout_marginTop="32dp"
+        android:text="UBAH"
+        android:textSize="24sp"/>
 
 </LinearLayout>
